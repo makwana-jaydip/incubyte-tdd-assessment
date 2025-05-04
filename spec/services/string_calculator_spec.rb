@@ -30,5 +30,9 @@ RSpec.describe StringCalculator do
         described_class.add("1,-2,3,-4")
       }.to raise_error(RuntimeError, "negative numbers not allowed: -2, -4")
     end
+
+    it 'returns the sum of numbers separated by commas and newlines' do
+      expect(described_class.add("1\n2,3")).to eq(6)
+    end
   end
 end
