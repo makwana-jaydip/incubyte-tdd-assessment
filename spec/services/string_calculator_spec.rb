@@ -24,5 +24,11 @@ RSpec.describe StringCalculator do
       expect(described_class.add("//|\n1|2|3")).to eq(6)
       expect(described_class.add("//sep\n2sep3")).to eq(5)
     end
+
+    it 'raises an exception when negative numbers are included' do
+      expect {
+        described_class.add("1,-2,3,-4")
+      }.to raise_error(RuntimeError, "negative numbers not allowed: -2, -4")
+    end
   end
 end

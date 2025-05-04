@@ -3,7 +3,7 @@ class StringCalculator
     return 0 if input.empty?
 
     delimiter = /,|\n/
-    if input.start_with?('//')
+    if input.start_with?("//")
       delimiter_line, input = input.split("\n", 2)
       delimiter = Regexp.escape(delimiter_line[2..])
     end
